@@ -11,7 +11,7 @@
   --text-secondary: #333333;
   --accent: #0066ff;
   --accent-hover: #0052cc;
-  --border: #e0e0e0;
+  --border: #3430a9;
   --card-bg: #ffffff;
 }
 
@@ -22,7 +22,7 @@
   --text-secondary: #cccccc;
   --accent: #3399ff;
   --accent-hover: #66b3ff;
-  --border: #1a1a1a;
+  --border: #eed80c;
   --card-bg: #0f0f0f;
 }
 
@@ -146,6 +146,38 @@ nav a:hover {
 .hero {
   padding: 6rem 0;
   border-bottom: 2px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-photo {
+  margin-bottom: 2rem;
+}
+
+.profile-placeholder {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 3px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.profile-placeholder img{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 3px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
 }
 
 .hero h1 {
@@ -166,6 +198,8 @@ nav a:hover {
   max-width: 600px;
   color: var(--text-secondary);
   margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-button {
@@ -281,6 +315,8 @@ nav a:hover {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
 }
+
+
 
 .skill-category h3 {
   font-size: 1.25rem;

@@ -3,391 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f5f5f5;
-            --text-primary: #000000;
-            --text-secondary: #333333;
-            --accent: #0066ff;
-            --accent-hover: #0052cc;
-            --border: #e0e0e0;
-            --card-bg: #ffffff;
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: #000000;
-            --bg-secondary: #0a0a0a;
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
-            --accent: #3399ff;
-            --accent-hover: #66b3ff;
-            --border: #1a1a1a;
-            --card-bg: #0f0f0f;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        /* Header */
-        header {
-            border-bottom: 2px solid var(--border);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            background-color: var(--bg-primary);
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        .theme-toggle {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 2px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-
-        .theme-toggle:hover {
-            background: var(--accent-hover);
-        }
-
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            font-size: 1.25rem;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -6px);
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 6rem 0;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero h2 {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            max-width: 600px;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 0.875rem 2rem;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 2px;
-            transition: background-color 0.2s;
-        }
-
-        .cta-button:hover {
-            background: var(--accent-hover);
-        }
-
-        /* Section Headings */
-        .section {
-            padding: 4rem 0;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            font-weight: 700;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border: 2px solid var(--border);
-            border-radius: 4px;
-            overflow: hidden;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: var(--bg-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            padding: 0.25rem 0.75rem;
-            font-size: 0.875rem;
-            border-radius: 2px;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .project-link:hover {
-            color: var(--accent-hover);
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-        }
-
-        /* Contact */
-        .contact-links {
-            display: flex;
-            gap: 2rem;
-            font-size: 1.125rem;
-        }
-
-        .contact-links a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .contact-links a:hover {
-            color: var(--accent-hover);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            nav {
-                gap: 1rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 456px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background: var(--bg-primary);
-                border-bottom: 2px solid var(--border);
-                padding: 1rem 2rem 2rem;
-                gap: 1.5rem;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: -1;
-            }
-
-            .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .logo {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            header {
-                position: relative;
-            }
-        }
-    </style>
+    <title>Jeremy Lubanga - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            Your Name
+            Jeremy Lubanga
             <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -404,7 +26,10 @@
 
     <div class="container">
         <section class="hero">
-            <h1>Hi, I'm Your Name</h1>
+<div class="profile-photo">
+                <div class="profile-placeholder"><img src="profile_photo.jpg" alt=""></div>
+            </div>
+            <h1>Hi, I'm Jeremy Lubanga</h1>
             <h2>Full Stack Developer & Designer</h2>
             <p>I build modern web applications with clean code and great user experiences. Passionate about creating solutions that make a difference.</p>
             <a href="#contact" class="cta-button">Get In Touch</a>
@@ -530,8 +155,7 @@
                     <h3>Frontend</h3>
                     <ul>
                         <li>HTML & CSS</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>React / Vue / Angular</li>
+                        <li>JavaScript </li>
                         <li>Responsive Design</li>
                     </ul>
                 </div>
@@ -539,8 +163,6 @@
                     <h3>Backend</h3>
                     <ul>
                         <li>Node.js / Express</li>
-                        <li>Python / Django</li>
-                        <li>REST APIs</li>
                         <li>Database Design</li>
                     </ul>
                 </div>
@@ -548,9 +170,8 @@
                     <h3>Tools & Others</h3>
                     <ul>
                         <li>Git & GitHub</li>
-                        <li>Docker</li>
-                        <li>AWS / Cloud Services</li>
-                        <li>Agile / Scrum</li>
+                        <li>bash & zsh shells</li>
+
                     </ul>
                 </div>
             </div>
@@ -562,10 +183,9 @@
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
             </p>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com">Email</a>
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-                <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+                <a href="mailto:jlubanga55@gmail.com">Email</a>
+                <a href="https://github.com/jeremy2177" target="_blank">GitHub</a>
+                
             </div>
         </section>
     </div>
@@ -620,16 +240,3 @@
     </script>
 </body>
 </html>
-To use this:
-
-Copy the entire code above
-Create a new file called portfolio.html
-Paste the code and save it
-Open it in any web browser
-Customization Guide:
-
-Your Info: Replace "Your Name", job title, and description in the hero section
-Projects: Each project card is a template - duplicate, modify title, description, emoji, tags, and links
-Skills: Update the skills lists to match your expertise
-Contact: Update email and social media links
-Colors: Modify the CSS variables in :root and [data-theme="dark"] for different color schemes
