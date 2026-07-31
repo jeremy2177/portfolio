@@ -877,12 +877,14 @@ nav a:hover::before {
 }
 
 .contact-cards-container {
+  display: flex;
   position: relative;
   width: 100%;
   max-width: 600px;
   height: 400px;
   perspective: 1000px;
   animation: cardStageEntrance 1.5s var(--easing-spring) both;
+
 }
 
 @keyframes cardStageEntrance {
@@ -891,12 +893,13 @@ nav a:hover::before {
 }
 
 .contact-card {
-  position: absolute;
+  /* position: absolute; */
   width: 200px;
   height: 180px;
   background: var(--bg-card);
   border: 2px solid var(--border);
   border-radius: 16px;
+  margin-left: 10px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -908,6 +911,7 @@ nav a:hover::before {
   transform-style: preserve-3d;
   animation: floatCard 6s var(--easing-liquid) infinite ease-in-out;
   animation-delay: calc(var(--i) * 0.3s);
+
 }
 
 .contact-card:nth-child(1) { animation-delay: 0s; }
